@@ -1,0 +1,17 @@
+DROP TABLE IF EXISTS borrow;
+DROP TABLE IF EXISTS book;
+
+CREATE TABLE book (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    author VARCHAR(255) NOT NULL,
+    status VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE borrow (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    user_id BIGINT NOT NULL,
+    book_id BIGINT NOT NULL,
+    borrow_date DATE NOT NULL,
+    FOREIGN KEY (book_id) REFERENCES book(id)
+); 
